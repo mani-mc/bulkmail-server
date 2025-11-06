@@ -7,7 +7,15 @@ const Credential = require("./models/Credential");
 const EmailHistory = require("./models/EmailHistory");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://your-vercel-app-name.vercel.app",
+      "http://localhost:5173",
+    ],
+    methods: ["GET", "POST"],
+  })
+);
 app.use(express.json());
 
 mongoose
